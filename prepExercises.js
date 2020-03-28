@@ -22,23 +22,42 @@
 
 //  Harry Potter and the Sorcerer's Stone (J.K. Rowling)
 //  Romeo and Juliet (William Shakespeare)
+var books = { 
+ title: "Romeo and Juliet",
+ author: "William Shakespeare",
+ genre: "romance",
+ numberOfPages: 300,
+ description: "a very nice book"
+};
+
 //  Structure and Interpretation of Computer Programs (Gerald Jay Sussman, Hal Abelson)
 //  NOTE: Did you account for the possibility of two authors? If not, update your model to handle multiple authors.
 //  Three other books (see this list for ideas)
 
 // 3.You may have been rewriting the same type of object over and over. We need to stay DRY (Do Not Repeat). Write a function makeBook that takes as arguments different attributes of a book and returns an object representing that book that has the proper structure (we call this a factory function).
+function makeBook(title,author,genre,numberOfPages,description){
+	return{ title: title,
+	        author : author,
+	        genre : genre,
+	        numberOfPage: numberOfPages,
+	        descritpiton: description}
+}
 
 // 4.Look at one of your book objects in the console. This is the object inspector. The object inspector is nice to have, but it will be easier to have a function to display the more important information easily. Write a function called displayBook that takes a book as an argument, and returns the important information in a more readable way, for example:
-
 // var sorcerersStone = { /* ... */ }
 //  function displayBook(book) {
 //        // ...
 //  }
 //  displayBook(sorcerersStone);
-//  // => 'Harry Potter and the Sorcerer's Stone, by J.K. Rowling -- fantasy, $24.99'
+//  // => 'Harry Potter and the Sorcerer's Stone, by J.K. Rowling -- "", $24.99'
 // The output string above is only an example. What information is most important to you? How can you make that information easier to read for people?
-
+var book1= makeBook('Romeo and Juliet',"William Shakespeare","romance",300,"a very nice book");
+var book2 = makebook("Harry Potter and the Sorcerer's Stone","J.K. Rowling","fantasy",480,"mind blowing");
+function displayBook(books){
+	return books.title +',' + books.author + ',' + books.genre;
+}
 // 5.Create an array called books that holds all of the books that you created above.
+var array= [book1,book2]
 
 // 6.Your function displayBook can be used to display a single book as a string. Now, write a function displayBooks that, given an array of books, returns a single string consisting of all of the books. Use the function displayBook to format all of the books. Each book should be numbered and separated with a newline (we also call this a line break) character so that each book is shown on a separate line in the console. The newline character is specified with a special escaped character in a string:
 
